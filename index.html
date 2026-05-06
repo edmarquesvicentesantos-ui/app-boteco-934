@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boteco 934 - Conhecimento</title>
+<link rel="manifest" href="manifest.json">
+<style>
+body {margin:0;font-family:Arial;background:#020617;color:#fff;}
+header {background:#0f172a;padding:15px;text-align:center;}
+.container {display:flex;flex-wrap:wrap;justify-content:center;}
+.card {background:#0f172a;margin:10px;padding:15px;border-radius:12px;width:280px;}
+button {padding:10px;margin-top:5px;border:none;border-radius:8px;background:#22c55e;width:100%;}
+audio {width:100%;margin-top:10px;}
+</style>
+</head>
+<body>
+
+<header>
+<h2>📚 Boteco 934 - Conhecimento</h2>
+<button onclick="startTimer()">⏱️ Iniciar 40 min</button>
+<p id="timer"></p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h3>🧠 Ansiedade</h3>
+<button onclick="respirar()">Respiração guiada</button>
+<button onclick="pensamento()">Reorganizar pensamento</button>
+</div>
+
+<div class="card">
+<h3>Meditações</h3>
+<audio controls>
+<source src="https://archive.org/download/meditations_0906_librivox/meditations_01_marcusaurelius.mp3">
+</audio>
+</div>
+
+<div class="card">
+<h3>A Arte da Guerra</h3>
+<audio controls>
+<source src="https://archive.org/download/art_of_war_librivox/artofwar_01_suntzu.mp3">
+</audio>
+</div>
+
+<div class="card">
+<h3>O Príncipe</h3>
+<audio controls>
+<source src="https://archive.org/download/prince_0807_librivox/prince_01_machiavelli.mp3">
+</audio>
+</div>
+
+</div>
+
+<script>
+let tempo = 40*60;
+function startTimer(){
+ let t=tempo;
+ let i=setInterval(()=>{
+  let m=Math.floor(t/60);
+  let s=t%60;
+  document.getElementById("timer").innerText=m+":"+(s<10?"0":"")+s;
+  t--;
+  if(t<0){clearInterval(i);alert("Parabéns!");}
+ },1000);
+}
+function respirar(){
+ alert("Respire: 4s puxar, 4s segurar, 6s soltar por 5 minutos.");
+}
+function pensamento(){
+ alert("Pergunte: isso é real ou medo? Se medo: não está acontecendo agora.");
+}
+</script>
+
+</body>
+</html>
